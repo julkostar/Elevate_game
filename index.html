@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elevate</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+</head>
+<body>
+  <main id="layout">
+    <div id="game-wrap"></div>
+
+    <aside id="panel">
+      <header>
+        <h1>ELEVATE</h1>
+        <p class="sub">Pick an answer. The fewer people who chose it, the higher you float.</p>
+      </header>
+
+      <section class="card" id="player">
+        <h2>Player</h2>
+        <form id="name-form" autocomplete="off">
+          <input id="name-input" type="text" maxlength="24" placeholder="Enter your name…" spellcheck="false" />
+          <button type="submit" class="primary">Start</button>
+        </form>
+        <div id="player-info" hidden>
+          <span>Playing as <strong id="player-name"></strong></span>
+          <button id="btn-change" type="button">Change</button>
+        </div>
+        <p id="name-error" class="error"></p>
+      </section>
+
+      <section class="card" id="question" hidden>
+        <h2>Question <span id="q-progress"></span></h2>
+        <p id="q-text"></p>
+        <div id="options"></div>
+        <p id="feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="card" id="results" hidden>
+        <h2>Rarity ranking</h2>
+        <p id="result-summary"></p>
+        <ol id="ranking"></ol>
+        <button id="btn-next" type="button" class="primary">Next question</button>
+      </section>
+
+      <section class="card" id="rarity">
+        <h2>Rarity</h2>
+        <dl class="kv">
+          <dt>Current tier</dt><dd id="current-tier">Ground</dd>
+          <dt>Total points</dt><dd id="total-points">0</dd>
+          <dt>Altitude</dt><dd id="altitude">0 m</dd>
+        </dl>
+        <table id="rarity-table">
+          <thead><tr><th>Tier</th><th>Picked by</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="card" id="leaderboard">
+        <h2>Leaderboard</h2>
+        <ol id="leaders"></ol>
+      </section>
+    </aside>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
